@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Scientist Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- React 18 & Babel (for JSX support) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- 
+    FONT SETUP:
+    - LCA uses a proprietary serif font for headings and a clean sans serif for body text.
+    - Here we approximate with:
+      - "Playfair Display" (serif) for headings
+      - "Inter" (sans serif) for body
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* 
+      -----------------------------------
+      GLOBAL STYLES (Colors, Typography)
+      -----------------------------------
+      - Background: #F7F7F5
+      - Text: #111
+      - Footer BG: #0A2517 (Dark Green)
+      - Accent Button: #16A085 (Teal/Green)
+    */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F7F7F5;
+      color: #111;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: #111;
+      margin: 0;
+    }
+    h1, h2 {
+      font-weight: 700;
+    }
+    p {
+      font-weight: 300;
+      margin: 0;
+    }
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /*
+      -----------------
+      NAVIGATION
+      -----------------
+      - A sticky top nav with left brand, right links
+    */
+    nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      border-bottom: 1px solid #ddd;
+      z-index: 999;
+    }
+    nav .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #111;
+      transition: color 0.2s ease;
+    }
+    nav ul li a:hover {
+      color: #16A085;
+    }
+
+    /*
+      -----------------
+      HERO SECTION
+      -----------------
+      - Large heading, subtext, and CTA
+    */
+    .hero-section {
+      text-align: center;
+      padding: 100px 5% 60px;
+    }
+    .hero-section h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+    .hero-section p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .hero-section button {
+      background-color: #16A085;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .hero-section button:hover {
+      background-color: #13856f;
+    }
+
+    /*
+      -----------------
+      "LEADERS AT..."
+      SECTION
+      -----------------
+      - This replicates the LCA style table/section
+    */
+    .leaders-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .leaders-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .leaders-table {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    .leaders-table th,
+    .leaders-table td {
+      text-align: left;
+      padding: 15px 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+    }
+    .leaders-table th {
+      font-weight: 600;
+      color: #555;
+    }
+    .leaders-table td {
+      color: #333;
+    }
+
+    /*
+      -----------------
+      "MEET THE DESIGN FIRM..."
+      SECTION
+      -----------------
+      - We'll adapt it to "Meet the Data Scientist..."
+    */
+    .meet-section {
+      padding: 60px 5%;
+      text-align: center;
+    }
+    .meet-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .meet-section p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    /*
+      -----------------
+      CONTENT SECTIONS
+      -----------------
+      - We'll place the actual resume content in collapsible "cards" or normal text blocks
+    */
+    .content-section {
+      padding: 60px 5%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .content-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .resume-block {
+      margin-bottom: 40px;
+    }
+    .resume-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .resume-block ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .resume-block ul li {
+      margin-bottom: 5px;
+      font-size: 0.95rem;
+    }
+
+    /*
+      -----------------
+      NEWSLETTER / FOOTER SECTION
+      -----------------
+      - Dark green background
+    */
+    footer {
+      background-color: #1E3125;
+      color: #fff;
+      padding: 60px 5%;
+    }
+    footer h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .footer-btn {
+      display: inline-block;
+      background-color: #fff;
+      color: #0A2517;
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      transition: background-color 0.3s ease;
+    }
+    .footer-btn:hover {
+      background-color: #16A085;
+      color: #fff;
+    }
+    .footer-links {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .footer-links a {
+      font-size: 0.9rem;
+      color: #fff;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover {
+      color: #16A085;
+    }
+    .footer-bottom {
+      margin-top: 40px;
+      font-size: 0.85rem;
+    }
+
+    /*
+      -------------------------------------
+      SIMPLE SCROLL FADE-IN ANIMATION
+      -------------------------------------
+    */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .fade-section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /*
+      -----------------
+      MEDIA QUERIES
+      -----------------
+    */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+      nav ul {
+        gap: 15px;
+      }
+      .leaders-table th,
+      .leaders-table td {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Root for React App -->
+  <div id="root"></div>
+
+  <!-- REACT APP -->
+  <script type="text/babel">
+
+    const { useEffect } = React;
+
+    // Intersection Observer to fade sections in
+    function useFadeInOnScroll() {
+      useEffect(() => {
+        const sections = document.querySelectorAll('.fade-section');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          },
+          { threshold: 0.2 }
+        );
+        sections.forEach((section) => observer.observe(section));
+        return () => sections.forEach((section) => observer.unobserve(section));
+      }, []);
+    }
+
+    // NAVBAR
+    const Navbar = () => {
+      return (
+        <nav>
+          <div className="brand">My Portfolio</div>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      );
+    };
+
+    // HERO SECTION
+    const HeroSection = () => {
+      return (
+        <section id="home" className="hero-section fade-section">
+          <h1>The Data Scientist for the AI Age.</h1>
+          <p>
+            From AI interfaces to LLMs to cloud-based solutions, I design data-driven products for the future.
+            I don’t follow trends; I create them—driving transformations at Fortune 500 companies.
+          </p>
+          <button onClick={() => window.location='#contact'}>CONTACT ME</button>
+        </section>
+      );
+    };
+
+    // LEADERS SECTION (similar to LCA's table layout)
+    const LeadersSection = () => {
+      return (
+        <section className="leaders-section fade-section">
+          <h2>Leaders at Fortune 500 companies choose me to define their future...</h2>
+          <table className="leaders-table">
+            <thead>
+              <tr>
+                <th>COMPANY</th>
+                <th>POSITION</th>
+                <th>INDUSTRY</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>DTE Energy</td>
+                <td>Data Scientist (Co-op)</td>
+                <td>Utilities</td>
+              </tr>
+              <tr>
+                <td>Nylex Group</td>
+                <td>Associate ML Engineer</td>
+                <td>Manufacturing</td>
+              </tr>
+              <tr>
+                <td>Wayne State University</td>
+                <td>Software Developer - ML Focused</td>
+                <td>Academia</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      );
+    };
+
+    // "MEET THE DATA SCIENTIST" SECTION
+    const MeetSection = () => {
+      return (
+        <section className="meet-section fade-section">
+          <h2>Meet the data scientist for the AI age.</h2>
+          <p>Now accepting new clients.</p>
+          <button onClick={() => window.location='#contact'} style={{
+            backgroundColor: '#16A085',
+            color: '#fff',
+            padding: '12px 30px',
+            fontSize: '1rem',
+            fontWeight: '600',
+            borderRadius: '5px',
+            border: 'none',
+            marginTop: '20px',
+            cursor: 'pointer'
+          }}>
+            CONTACT ME
+          </button>
+        </section>
+      );
+    };
+
+    // EXPERIENCE SECTION
+    const ExperienceSection = () => {
+      return (
+        <section id="experience" className="content-section fade-section">
+          <h2>Professional Experience</h2>
+
+          <div className="resume-block">
+            <h3>Wayne State University, Detroit, USA</h3>
+            <p><strong>Software Developer - ML Focused</strong> (Feb 2024 - Current)</p>
+            <ul>
+              <li>Built a real-time analytics platform for 50+ researchers using Python/TensorFlow.</li>
+            </ul>
+          </div>
+
+          <div className="resume-block">
+            <h3>DTE Energy (Fortune 500 Utility), Detroit, USA</h3>
+            <p><strong>Data Scientist (Co-op)</strong> (Jan 2024 - Dec 2024)</p>
+            <ul>
+              <li>Saved $1.3M in annual losses via Python/SQL anomaly detection (1,200+ fraudulent accounts flagged).</li>
+              <li>Reduced support calls by 10,000+ using speech-to-text NLP analysis on Databricks.</li>
+              <li>Cut customer arrears risk by 28% with a predictive LightGBM model on Azure.</li>
+              <li>Boosted LLM efficiency, reducing average handle time by 25% through A/B testing.</li>
+              <li>Engineered Databricks ETL pipelines automating 50+ SAP workflows (99.9% reliability).</li>
+            </ul>
+          </div>
+
+          <div className="resume-block">
+            <h3>Nylex Group (Global Manufacturing), Mumbai, India</h3>
+            <p><strong>Associate Machine Learning Engineer</strong> (Jan 2021 - Oct 2022)</p>
+            <ul>
+              <li>Reduced workplace injuries by 43% via a deep learning CV system on AWS (PPE violations detection).</li>
+              <li>Decreased call center inquiries by 500+/week with a real-time delivery forecasting model.</li>
+              <li>Managed 15+ production ML models on AWS with 99.8% uptime.</li>
+            </ul>
+          </div>
+
+          <div className="resume-block">
+            <p><strong>Data Analyst</strong> (Nov 2019 - Dec 2020)</p>
+            <ul>
+              <li>Saved 8 hours/week in manual reporting with automated Tableau dashboards.</li>
+              <li>Reduced data prep time by 40% via ETL workflows (SQL/Alteryx).</li>
+              <li>Identified cost-saving inventory trends (INR 20M+ procurement optimizations).</li>
+            </ul>
+          </div>
+        </section>
+      );
+    };
+
+    // PROJECTS SECTION
+    const ProjectsSection = () => {
+      return (
+        <section id="projects" className="content-section fade-section">
+          <h2>Projects</h2>
+
+          <div className="resume-block">
+            <h3>Code Activity Logger | <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></h3>
+            <ul>
+              <li>Developed a Python tool leveraging Google Gemini API and LangChain to generate code summaries.</li>
+              <li>Automated daily backups and Git updates for reliable changelogs.</li>
+            </ul>
+          </div>
+
+          <div className="resume-block">
+            <h3>Energy/Load Forecasting | <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></h3>
+            <ul>
+              <li>Built an 85%-accurate real-time energy predictor using AWS SageMaker/LSTMs.</li>
+              <li>Reduced forecasting errors by 25% and optimized grid efficiency.</li>
+            </ul>
+          </div>
+        </section>
+      );
+    };
+
+    // EDUCATION SECTION
+    const EducationSection = () => {
+      return (
+        <section id="education" className="content-section fade-section">
+          <h2>Education</h2>
+          <div className="resume-block">
+            <h3>Wayne State University, Detroit, USA</h3>
+            <p>Master of Science, Computer Science, GPA: 4.0/4.0 (Dec 2024)</p>
+          </div>
+          <div className="resume-block">
+            <h3>University of Mumbai, Mumbai, India</h3>
+            <p>Bachelor of Engineering, Computer Engineering, GPA: 3.4/4.0 (Aug 2022)</p>
+          </div>
+        </section>
+      );
+    };
+
+    // CERTIFICATIONS SECTION
+    const CertificationsSection = () => {
+      return (
+        <section id="certifications" className="content-section fade-section">
+          <h2>Certifications</h2>
+          <div className="resume-block">
+            <p>Data Science Professional Certificate: IBM (Oct 2024)</p>
+            <p>AWS Cloud Fundamentals: AWS (Apr 2021)</p>
+          </div>
+        </section>
+      );
+    };
+
+    // FOOTER SECTION (Newsletter style)
+    const Footer = () => {
+      return (
+        <footer className="fade-section">
+          <h2>Exclusive newsletter for 500 of my closest friends.</h2>
+          <p>
+            A curated hit list of my favorite things happening across product,
+            design, and building for the future.
+          </p>
+          <a href="#!" className="footer-btn">JOIN WAITLIST</a>
+
+          <div className="footer-links">
+            <a href="#home">What I Believe</a>
+            <a href="#experience">How I Think</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div className="footer-bottom">
+            <p>©2025 My Portfolio</p>
+          </div>
+        </footer>
+      );
+    };
+
+    // CONTACT SECTION (just a simple form area)
+    const ContactSection = () => {
+      return (
+        <section id="contact" className="content-section fade-section">
+          <h2>Contact</h2>
+          <div style={{ marginTop: '20px' }}>
+            <p style={{ marginBottom: '10px' }}>Have a question or want to work together?</p>
+            <button
+              style={{
+                backgroundColor: '#16A085',
+                color: '#fff',
+                padding: '12px 30px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                borderRadius: '5px',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+              onClick={() => alert('Thank you for reaching out!')}
+            >
+              Send Email
+            </button>
+          </div>
+        </section>
+      );
+    };
+
+    // MAIN APP
+    const App = () => {
+      useFadeInOnScroll();
+
+      return (
+        <>
+          <Navbar />
+          <HeroSection />
+          <LeadersSection />
+          <MeetSection />
+          <ExperienceSection />
+          <ProjectsSection />
+          <EducationSection />
+          <CertificationsSection />
+          <ContactSection />
+          <Footer />
+        </>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

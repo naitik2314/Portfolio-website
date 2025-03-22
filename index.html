@@ -381,56 +381,33 @@
     const LeadersSection = () => {
       return (
         <section className="leaders-section fade-section">
-          <h2>Leaders at Fortune 500 companies choose me to define their future...</h2>
+          <h2>Things that I am working on</h2>
           <table className="leaders-table">
             <thead>
               <tr>
-                <th>COMPANY</th>
-                <th>POSITION</th>
-                <th>INDUSTRY</th>
+                <th>Industry</th>
+                <th>App Name</th>
+                <th>Short phrase</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>DTE Energy</td>
-                <td>Data Scientist (Co-op)</td>
-                <td>Utilities</td>
+                <td>Productivity</td>
+                <td>Notique</td>
+                <td>Notes and Task management with AI</td>
               </tr>
               <tr>
-                <td>Nylex Group</td>
-                <td>Associate ML Engineer</td>
-                <td>Manufacturing</td>
+                <td>Lifestyle</td>
+                <td>Progress Odyssey</td>
+                <td>Gamify your progress for the dopamine</td>
               </tr>
               <tr>
-                <td>Wayne State University</td>
-                <td>Software Developer - ML Focused</td>
-                <td>Academia</td>
+                <td>Healthcare</td>
+                <td>(TBD)</td>
+                <td>Offline clinical assistant for Health records and transcript</td>
               </tr>
             </tbody>
           </table>
-        </section>
-      );
-    };
-
-    // "MEET THE DATA SCIENTIST" SECTION
-    const MeetSection = () => {
-      return (
-        <section className="meet-section fade-section">
-          <h2>Meet the data scientist for the AI age.</h2>
-          <p>Now accepting new clients.</p>
-          <button onClick={() => window.location='#contact'} style={{
-            backgroundColor: '#16A085',
-            color: '#fff',
-            padding: '12px 30px',
-            fontSize: '1rem',
-            fontWeight: '600',
-            borderRadius: '5px',
-            border: 'none',
-            marginTop: '20px',
-            cursor: 'pointer'
-          }}>
-            CONTACT ME
-          </button>
         </section>
       );
     };
@@ -580,7 +557,7 @@
                 border: 'none',
                 cursor: 'pointer'
               }}
-              onClick={() => alert('Thank you for reaching out!')}
+              onClick={() => window.location.href = 'mailto:naitik@wayne.edu'}
             >
               Send Email
             </button>

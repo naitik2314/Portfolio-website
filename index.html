@@ -526,26 +526,69 @@
       );
     };
 
-    // FOOTER SECTION (Newsletter style)
-    
+    // FOOTER SECTION (updated)
     const Footer = () => {
       return (
-        <footer className="fade-section">
-          <h2>Exclusive newsletter for 500 of my closest friends.</h2>
-          <p>
-            A curated hit list of my favorite things happening across product,
-            design, and building for the future.
+        <footer
+          className="fade-section"
+          style={{
+            backgroundColor: '#1E3125',
+            color: '#fff',
+            padding: '60px 5%',
+            textAlign: 'center'
+          }}
+        >
+          <h2 style={{ marginBottom: '20px', fontSize: '1.8rem' }}>Let's Connect</h2>
+          <p style={{ marginBottom: '30px', fontSize: '1rem' }}>
+            Follow me on social media for the latest updates.
           </p>
-          <a href="#!" className="footer-btn">JOIN WAITLIST</a>
-
-          <div className="footer-links">
-            <a href="#home">What I Believe</a>
-            <a href="#experience">How I Think</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+          <div
+            className="footer-social"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '30px',
+              marginBottom: '30px'
+            }}
+          >
+            <a href="https://github.com/naitik2314" target="_blank" rel="noreferrer">
+              <img
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                alt="GitHub"
+                style={{ width: '32px', height: '32px' }}
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/naitik-shah-49baba1a1/" target="_blank" rel="noreferrer">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                alt="LinkedIn"
+                style={{ width: '32px', height: '32px' }}
+              />
+            </a>
+            <a href="https://twitter.com/yourTwitter" target="_blank" rel="noreferrer">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                alt="Twitter"
+                style={{ width: '32px', height: '32px' }}
+              />
+            </a>
           </div>
-          <div className="footer-bottom">
-            <p>©2025 Naitik Shah</p>
+          <div
+            className="footer-links"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '40px',
+              marginBottom: '30px'
+            }}
+          >
+            <a href="#home" style={{ fontSize: '0.9rem' }}>Home</a>
+            <a href="#experience" style={{ fontSize: '0.9rem' }}>Experience</a>
+            <a href="#projects" style={{ fontSize: '0.9rem' }}>Projects</a>
+            <a href="#contact" style={{ fontSize: '0.9rem' }}>Contact</a>
+          </div>
+          <div className="footer-bottom" style={{ fontSize: '0.85rem' }}>
+            <p>©2025 Naitik Shah. All rights reserved.</p>
           </div>
         </footer>
       );

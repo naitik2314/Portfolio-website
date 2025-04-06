@@ -31,7 +31,7 @@ This is the source code for my personal portfolio website, showcasing my profess
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/naitik2314/Portfolio-website.git
    ```
 2. Navigate to the project directory:
    ```bash

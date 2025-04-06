@@ -35,7 +35,7 @@ This is the source code for my personal portfolio website, showcasing my profess
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Portfolio-v8
+   cd Portfolio-Website
    ```
 3. Open `index.html` in your browser to view the website.
 

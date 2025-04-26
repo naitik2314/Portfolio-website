@@ -2,23 +2,29 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { BriefcaseIcon, CalendarIcon, MapPinIcon } from 'lucide-react';
 const experiences = [{
-  title: 'Senior Data Scientist',
-  company: 'Tech Innovations Inc.',
-  duration: '2021 - Present',
-  location: 'San Francisco, CA',
-  description: ['Led a team of 5 data scientists in developing predictive models that increased customer retention by 35%', 'Implemented advanced NLP algorithms for sentiment analysis on 10M+ customer reviews', 'Developed a real-time anomaly detection system that reduced fraud by 28%']
+  title: 'Founder & Machine Learning Engineer',
+  company: 'CuraNote (Healthcare SaaS Startup - Succesfully Acquired)',
+  duration: 'Aug 2023 - Apr 2025',
+  location: 'Detroit, MI',
+  description: ['Developed an offline, HIPAA-compliant AI voice agent that generates clinical notes at 95% accuracy, reducing manual transcription by 30 hrs/user month ', 'Fine-tuned LLM (Llama-2) via Hugging Face and implemented a RAG architecture to securely integrate EHR data', 'Engineered a multimodal NLP pipeline (Vosk + Llama-2) to process over 1TB of clinical data monthly across 10 labs', 'Built a full-stack solution using Python (FastAPI), React, PostgreSQL, and Docker, streamlining deployment and continuous delivery within an MLOps framework']
 }, {
-  title: 'Machine Learning Engineer',
-  company: 'DataDrive Solutions',
-  duration: '2018 - 2021',
-  location: 'Boston, MA',
-  description: ['Designed and deployed recommendation systems that increased user engagement by 42%', 'Built computer vision models for automated quality control, reducing defects by 18%', 'Optimized ML pipelines, reducing training time by 60% and infrastructure costs by 30%']
+  title: 'Data Scientist (Co-op)',
+  company: 'DTE Energy',
+  duration: 'Jan 2024 - Dec 2024',
+  location: 'Detroit, MI',
+  description: ['Engineered a real-time Transformer based call-assist model, slashing average handle time by 25% (120 s to 90 s)', 'Built a predictive model on Azure to classify new customers’ low-income status (77% accuracy, 0.85 AUC), assign FPL levels, and assess risk for 2.3M+ accounts saving $750K, and integrated MLFlow and Grafana for monitoring', 'Implemented automated hyperparameter tuning with Bayesian optimization and cross-validation, boosting predictive performance by 10% and reducing overfitting across heterogeneous big data sources', 'Reduced program evaluation time by 35% using advanced data mining and multivariate analysis with Pandas and SQL', 'Designed and automated robust Databricks ETL pipelines integrating 50+ SAP workflows, achieving 99.9% reliability', 'Processed 100GB/hr speech data with PySpark, cutting support calls by 10K+ and visualizing insights in Power BI']
+}, {
+  title: 'Associate Machine Learning Engineer',
+  company: 'Nylex Group',
+  duration: 'Jan 2021 - Oct 2022',
+  location: 'Mumbai, MH',
+  description: ['Deployed a TensorFlow LSTM delivery-forecast model on AWS, achieving 93% accuracy and improving supply chain', 'Engineered a real-time computer vision system using PyTorch on AWS that cut workplace injuries by 43%', 'Managed the deployment of 15+ production ML models on AWS using Kubernetes, achieving 99.8% uptime through robust lifecycle management and Git-based version control']
 }, {
   title: 'Data Analyst',
-  company: 'Analytics Advantage',
-  duration: '2016 - 2018',
-  location: 'Chicago, IL',
-  description: ['Created interactive dashboards to visualize KPIs for executive leadership', 'Performed statistical analysis to identify market trends and opportunities', 'Automated reporting processes, saving 15 hours of manual work per week']
+  company: 'Nylex Group',
+  duration: 'Nov 2019 - Dec 2020',
+  location: 'Mumbai, MH',
+  description: ['Conducted statistical analysis - including regression, ANOVA, and hypothesis testing - on 1 M+ records, boosting forecast accuracy by 18% and reducing planning errors by 22%', 'Developed predictive models (linear regression, decision trees) to forecast KPIs, improving accuracy by 15% and cutting inventory overhead by INR 20M', 'Optimized SQL queries; redesigned database schemas for a multi-source data warehouse, reducing query times by 50%']
 }];
 const Experience = () => {
   const ref = useRef(null);

@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <div className="font-bold text-xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              DataML.dev
+              Naitik Shah
             </div>
             <p className="text-gray-400 mt-1 text-sm">
               Data Science & Machine Learning Portfolio
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {currentYear} DataML.dev. All rights reserved.
+            © {currentYear} Naitik Shah. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm flex items-center">
             Built with <HeartIcon size={14} className="text-red-500 mx-1" /> and

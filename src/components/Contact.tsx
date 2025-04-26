@@ -73,7 +73,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="text-gray-400 text-sm">Email</h4>
-                      <p className="text-white">contact@dataml.dev</p>
+                      <p className="text-white">naitik@wayne.edu</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">

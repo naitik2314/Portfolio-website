@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0 font-bold text-2xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             <span className="cursor-pointer" onClick={() => scrollToSection('home')}>
-              DataML.dev
+              Naitik Shah
             </span>
           </div>
           {/* Desktop Navigation */}

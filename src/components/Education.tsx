@@ -64,10 +64,6 @@ const Education = () => {
                           <BookOpenIcon size={16} />
                           <span>{edu.institution}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <CalendarIcon size={16} />
-                          <span>{edu.duration}</span>
-                        </div>
                       </div>
                       <p className="text-gray-300">{edu.description}</p>
                     </div>

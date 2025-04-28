@@ -2,22 +2,12 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { BookOpenIcon, GraduationCapIcon, CalendarIcon } from 'lucide-react';
 const educationData = [{
-  degree: 'Ph.D. in Computer Science',
-  specialization: 'Machine Learning',
-  institution: 'Stanford University',
-  duration: '2014 - 2016',
-  description: 'Research focused on developing novel deep learning architectures for multi-modal data integration in healthcare applications.'
+  degree: 'M.S. in Computer Science',
+  institution: 'Wayne State University',
+  description: 'Deans list, Specialized in statistical modeling, machine learning algorithms, and large-scale data processing systems.'
 }, {
-  degree: 'M.S. in Data Science',
-  specialization: 'Big Data Analytics',
-  institution: 'Massachusetts Institute of Technology',
-  duration: '2012 - 2014',
-  description: 'Specialized in statistical modeling, machine learning algorithms, and large-scale data processing systems.'
-}, {
-  degree: 'B.S. in Mathematics',
-  specialization: 'Applied Mathematics',
-  institution: 'University of California, Berkeley',
-  duration: '2008 - 2012',
+  degree: 'B.E in Computer Engineering',
+  institution: 'University of Mumbai',
   description: 'Graduated with honors. Focused on computational mathematics, statistics, and early machine learning concepts.'
 }];
 const Education = () => {

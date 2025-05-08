@@ -7,41 +7,44 @@ import {
   BrainIcon,
   DatabaseIcon,
 } from 'lucide-react'
+
 const projects = [
   {
-    title: 'Neural Network Forecasting System',
+    title: 'Sequential Recommender using Reinforcement Learning',
     description:
-      'Developed a deep learning model for time-series forecasting that outperformed traditional statistical methods by 43%. Implemented using TensorFlow and deployed on AWS SageMaker.',
-    tags: ['Deep Learning', 'TensorFlow', 'Time Series', 'AWS'],
+      'Built a modular RL-based recommender in PyTorch + Gym (dueling Double-DQN with LSTM state encoder, cosine-similarity retrieval, prioritized replay, Noisy Nets and adaptive ε-decay), boosting simulated session rewards 7.8x, cutting discovery-fatigue exits by 65%, and serving 10-item slate recommendations via a Dockerized API in < 15 ms',
+    tags: ['Deep Learning', 'Gym', 'PyTorch'],
     icon: <BrainIcon size={24} className="text-purple-400" />,
-    githubUrl: 'https://github.com/username/neural-forecasting',
-    demoUrl: 'https://neural-forecast-demo.dataml.dev',
+    githubUrl: 'https://github.com/naitik2314/SequentialRecommender-RL', // Replace with actual project GitHub URL
   },
   {
-    title: 'Customer Segmentation Engine',
+    title: 'Notique',
     description:
-      'Created an unsupervised learning system that identified 7 distinct customer segments, enabling targeted marketing campaigns that increased conversion rates by 28%.',
-    tags: ['Clustering', 'Python', 'scikit-learn', 'Marketing Analytics'],
+      'CDeveloped a GenAI assistant app with Next.js, FastAPI and a fine-tuned Llama-3 model to automate note-taking and scheduling (boosting user efficiency by 25%), integrated LangChain for personalized workflows, driving 50+ daily active users and enabling scalable customization',
+    tags: ['Generative AI', 'Python', 'Full Stack', 'Llama 3 fine tuned', 'Hugging Face'],
     icon: <DatabaseIcon size={24} className="text-green-400" />,
-    githubUrl: 'https://github.com/username/customer-segmentation',
-    demoUrl: 'https://segmentation-demo.dataml.dev',
+    githubUrl: 'https://github.com/naitik2314/Notique', // Replace with actual project GitHub URL
   },
   {
-    title: 'Predictive Maintenance Dashboard',
+    title: 'ML Dataset Explorer',
     description:
-      'Built an interactive dashboard using predictive models to forecast equipment failures before they occur, reducing downtime by 35% and maintenance costs by 22%.',
-    tags: ['Predictive Analytics', 'React', 'Python', 'IoT'],
+      'Built ML Dataset Explorer, a Vercel-deployed Next.js app with a minimalist UI and dynamic visualizations, enabling users to interactively compare classification and regression model performance across multiple prefilled datasets and intuitively understand dataset-model relationships',
+    tags: ['Machine Learning', 'TypeScript', 'Python', 'Education'],
     icon: <BarChart2Icon size={24} className="text-blue-400" />,
-    githubUrl: 'https://github.com/username/predictive-maintenance',
-    demoUrl: 'https://maintenance-dashboard.dataml.dev',
+    githubUrl: 'https://github.com/naitik2314/ML-Dataset-Explorer', // Replace with actual project GitHub URL
+    demoUrl: 'https://ml-dataset-explorer.vercel.app/', // Replace with actual project demo URL
   },
 ]
+
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, {
     once: false,
     amount: 0.2,
   })
+
+  const GITHUB_PROFILE_URL = 'https://github.com/naitik2314'; // Your GitHub profile URL
+
   return (
     <section id="projects" className="py-20 bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +66,7 @@ const Projects = () => {
           }}
           ref={ref}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center text-white"> {/* Ensured text is visible */}
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-purple-500 mx-auto mb-12"></div>
@@ -113,7 +116,7 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
-                <div className="border-t border-gray-700 p-4 flex justify-between">
+                <div className="border-t border-gray-700 p-4 flex justify-between mt-auto"> {/* Added mt-auto to push links to the bottom */}
                   <a
                     href={project.githubUrl}
                     target="_blank"
@@ -137,17 +140,26 @@ const Projects = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{
-                scale: 0.95,
-              }}
-              className="bg-gradient-to-r from-purple-500 to-blue-600 text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+            <a
+              href={GITHUB_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              // The button itself doesn't need to be an interactive element if wrapped by an anchor
+              // but Framer Motion works well with 'a' tags directly too if you prefer.
+              // For simplicity here, the anchor wraps the styled button-like div or motion.div.
             >
-              View All Projects
-            </motion.button>
+              <motion.div // Changed button to motion.div to be a styled block inside the anchor
+                whileHover={{
+                  scale: 1.05,
+                }}
+                whileTap={{
+                  scale: 0.95,
+                }}
+                className="inline-block bg-gradient-to-r from-purple-500 to-blue-600 text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-purple-500/30 transition-all duration-300 cursor-pointer"
+              >
+                View All Projects
+              </motion.div>
+            </a>
           </div>
         </motion.div>
       </div>

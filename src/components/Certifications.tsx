@@ -2,25 +2,25 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { AwardIcon, CheckCircleIcon, ExternalLinkIcon } from 'lucide-react';
 const certifications = [{
-  title: 'TensorFlow Developer Certificate',
-  issuer: 'Google',
-  date: '2022',
-  description: 'Professional certification validating expertise in building and training neural networks using TensorFlow.'
+  title: 'Azure Data Scientist Associate (Azure, Machine Learning)',
+  issuer: 'Microsoft',
+  date: '2024',
+  description: 'Professional certification validating expertise in designing, training, and deploying machine learning models on Azure'
 }, {
-  title: 'AWS Certified Machine Learning - Specialty',
-  issuer: 'Amazon Web Services',
+  title: 'Data Science Professional Certificate (Python, Data Science, AI)',
+  issuer: 'IBM',
+  date: '2024',
+  description: 'Professional certification validating proficiency in Python-driven data science and AI workflows'
+}, {
+  title: 'AWS Cloud Fundamentals (AWS, Cloud, Data Engineering)',
+  issuer: 'AWS',
   date: '2021',
-  description: 'Advanced certification for designing, implementing, and maintaining machine learning solutions on AWS.'
+  description: 'Professional certification validating foundational expertise in AWS cloud and data engineering'
 }, {
-  title: 'Deep Learning Specialization',
-  issuer: 'DeepLearning.AI',
-  date: '2020',
-  description: 'Five-course specialization covering neural networks, optimization algorithms, and machine learning projects.'
-}, {
-  title: 'Professional Data Scientist',
-  issuer: 'DataCamp',
-  date: '2019',
-  description: 'Comprehensive certification covering data manipulation, visualization, and machine learning techniques.'
+  title: 'Google Data Analytics',
+  issuer: 'Google',
+  date: '2021',
+  description: 'Professional certification validating expertise in end-to-end data analytics'
 }];
 const Certifications = () => {
   const ref = useRef(null);
@@ -79,10 +79,6 @@ const Certifications = () => {
                         <CheckCircleIcon size={16} />
                         <span>Verified</span>
                       </div>
-                      <a href="#" className="text-blue-400 hover:text-blue-300 flex items-center gap-1 text-sm">
-                        <ExternalLinkIcon size={16} />
-                        <span>View Certificate</span>
-                      </a>
                     </div>
                   </div>
                 </div>

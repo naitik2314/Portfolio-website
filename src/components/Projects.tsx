@@ -26,7 +26,6 @@ const projects = [
     tags: ['Generative AI', 'Python', 'Full Stack', 'Llama 3', 'Hugging Face'],
     icon: <DatabaseIcon size={24} className="text-green-400" />,
     githubUrl: 'https://github.com/naitik2314/Notique',
-    demoUrl: 'https://notique.vercel.app/', // Demo URL is present
   },
   {
     title: 'ML Dataset Explorer',

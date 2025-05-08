@@ -78,38 +78,24 @@ const Contact = () => {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="mt-1">
-                      <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                        <PhoneIcon size={18} className="text-green-400" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-gray-400 text-sm">Phone</h4>
-                      <p className="text-white">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1">
                       <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
                         <MapPinIcon size={18} className="text-purple-400" />
                       </div>
                     </div>
                     <div>
                       <h4 className="text-gray-400 text-sm">Location</h4>
-                      <p className="text-white">San Francisco, CA</p>
+                      <p className="text-white">United States</p>
                     </div>
                   </div>
                 </div>
                 <div className="mt-10">
                   <h4 className="text-gray-300 mb-4">Connect with me</h4>
                   <div className="flex gap-4">
-                    <a href="#" className="w-10 h-10 rounded-full bg-gray-700 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300">
+                    <a href="https://www.linkedin.com/in/naitik-shah-49baba1a1/" className="w-10 h-10 rounded-full bg-gray-700 hover:bg-blue-600 flex items-center justify-center transition-colors duration-300">
                       <LinkedinIcon size={18} className="text-white" />
                     </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-900 flex items-center justify-center transition-colors duration-300">
+                    <a href="https://github.com/naitik2314" className="w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-900 flex items-center justify-center transition-colors duration-300">
                       <GithubIcon size={18} className="text-white" />
-                    </a>
-                    <a href="#" className="w-10 h-10 rounded-full bg-gray-700 hover:bg-blue-400 flex items-center justify-center transition-colors duration-300">
-                      <TwitterIcon size={18} className="text-white" />
                     </a>
                   </div>
                 </div>
